@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisdom-server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wisdom-server
+  template:
+    metadata:
+      labels:
+        app: wisdom-server
+    spec:
+      containers:
+      - name: wisdom-server
+        image: abusidd/wiscow:latest
+        ports:
+        - containerPort: 4499
